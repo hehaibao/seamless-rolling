@@ -27,7 +27,7 @@
                 clearTimeout(timer);
                 timer = setTimeout(() => {
                     if(uh <= sh) {
-                        //滚动到底之后，清除定时器，重头开始
+                        //ul高度不满足滚动，清除定时器
                         clearTimeout(timer);
                     } else {
                         $ulList.stop().animate({
@@ -35,6 +35,7 @@
                         }, 10, () => {
                             const _top = Math.abs(parseInt($ulList.css("margin-top")));
                             if(_top >= uh) {
+                                //滚动到底之后，重头开始
                                 $ulList.animate({"margin-top": 0}, 0);
                             }
                         });
@@ -46,7 +47,7 @@
             //自动开始滚动
             start();
 
-            //鼠标悬浮 暂停，离开则继续
+            //鼠标悬浮时 暂停滚动，鼠标离开则继续
             $ulList.mouseenter(() => {
                 clearTimeout(timer);
             }).mouseleave(() => {
