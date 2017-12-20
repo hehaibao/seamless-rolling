@@ -16,7 +16,18 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 ```
 
-2. 引用我写好的默认CSS 【tips：HTML结构请按照<div class="list"><ul><li></li></ul></div>这种结构来，其他内容随便你定义】
+2. 引用我写好的默认CSS 
+【Tips：
+
+```html
+<div class="list">
+   <ul>
+      <li></li>
+      <li></li>
+   </ul>
+</div>
+```
+HTML结构请按照这种结构来，其他内容随便你定义】
 
 ```css
 <style>
