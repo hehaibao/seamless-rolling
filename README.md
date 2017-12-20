@@ -16,7 +16,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 ```
 
-2. 引用我写好的默认CSS
+2. 引用我写好的默认CSS 【tips：HTML结构请按照<div class="list"><ul><li></li></ul></div>这种结构来，其他内容随便你定义】
 
 ```css
 <style>
@@ -49,7 +49,7 @@ a{text-decoration: none;color: #666;}
 <script src="js/seamlessRolling.min.js"></script>
 ```
 
-4. 最后一步
+4. 最后一步 调用
 
 ```javascript
 <script>
