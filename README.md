@@ -65,6 +65,13 @@ a{text-decoration: none;color: #666;}
 ```javascript
 <script>
    $(() => $.seamlessRolling());
+   
+   或自定义：
+   
+   $(() => $.seamlessRolling({
+      el: '.scroll-list', //滚动列表DOM
+      speed: 50 //滚动速度，值越大越慢
+   }));
 </script>
 ```
 
