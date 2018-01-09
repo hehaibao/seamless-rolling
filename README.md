@@ -2,6 +2,9 @@
 
 在线演示地址：https://hehaibao.github.io/seamless-rolling/
 
+效果预览：
+![image](https://github.com/hehaibao/seamless-rolling/blob/master/preview.gif)
+
 ### 插件说明：
 
 1. ES6语法，支持jQuery；
