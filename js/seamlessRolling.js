@@ -12,35 +12,44 @@
             //默认配置
             this.config = $.extend(true, {}, {
                 el: '.scroll-list', //滚动列表DOM
-                speed: 50 //滚动速度，值越大越慢
+                speed: 40, //滚动速度，值越大越慢
+                liHeight: 30, //li的高度，默认30px
+                hoverStop: true, //鼠标悬浮时，是否暂停，默认true：暂停
+                direction: 0 //滚动方向，0：上; 1：下
             }, options);
 
-            this.roll();
+            this.marquee();
         }
-        roll() {
+        marquee() {
             const _self = this;
+            if($(_self.config.el).length <= 0) throw new Error('please set a dom'); //如果元素不存在，则抛出错误
             const $ulList = $(_self.config.el).find('ul');
-            const [sh, uh] = [$(_self.config.el).height(),  $ulList.height()]; //ul父级高度，ul高度
             let timer = null;
 
             const start = () => {
                 clearTimeout(timer);
                 timer = setTimeout(() => {
-                    if(uh <= sh) {
-                        //ul高度不满足滚动，清除定时器
-                        clearTimeout(timer);
-                    } else {
-                        $ulList.stop().animate({
-                            marginTop: '-=1'
-                        }, 10, () => {
-                            const _top = Math.abs(parseInt($ulList.css("margin-top")));
-                            if(_top >= uh) {
-                                //滚动到底之后，重头开始
-                                $ulList.animate({"margin-top": 0}, 0);
+
+                    $ulList.stop().animate({
+                        marginTop: _self.config.direction == 0 ? '-=1' : '+=1'
+                    }, 0, () => {
+                        const _top = Math.abs(parseInt($ulList.css("margin-top")));
+                        const $li = $ulList.find('li');
+                        const liLen = $li.length;
+
+                        if(_top >= _self.config.liHeight) {
+                            if(_self.config.direction == 0) {
+                                // 向上滚动
+                                $li.slice(0, 1).appendTo($ulList);
+                            } else if(_self.config.direction == 1) {
+                                // 向下滚动
+                                $ulList.prepend($li.slice(liLen-1, liLen));
                             }
-                        });
-                        timer = setTimeout(start, _self.config.speed);
-                    }
+                            $ulList.css("margin-top", 0);
+                        }
+                    });
+                    
+                    timer = setTimeout(start, _self.config.speed);
                 }, _self.config.speed);
             };
 
@@ -49,7 +58,9 @@
 
             //鼠标悬浮时 暂停滚动，鼠标离开则继续
             $ulList.mouseenter(() => {
-                clearTimeout(timer);
+                if(_self.config.hoverStop) {
+                    clearTimeout(timer);
+                }
             }).mouseleave(() => {
                 start();
             });

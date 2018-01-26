@@ -10,7 +10,7 @@
     <title>jQuery 无缝滚动 插件</title>
     <style>
         /* reset */
-        html,body,ul,li{margin: 0;padding: 0;}
+        html,body,ul,li,p{margin: 0;padding: 0;}
         html, body{background-color: #f2f2f2;font-size: 16px;}
         ul{list-style: none;}
         a{text-decoration: none;color: #666;}
@@ -21,147 +21,121 @@
         .fl{float: left;}
 
         /* list css */
-        .list{width: 270px;height: 260px;margin: 30px auto auto;overflow: hidden;background-color: #fff;}
-        .list ul{padding: 20px;}
-        .list li{margin-bottom: 20px;}
+        .w900{width: 900px;margin: 0 auto;}
+        h2{width: 400px;margin: 10px auto;}
+        .w50{width: 50%;}
+        .list{width: 400px;height: 260px;margin: 30px auto auto;overflow: hidden;background-color: #fff;}
+        .list ul{padding: 0 20px;}
+        .scroll-list li{height: 60px;overflow: hidden;}
+        .testList li{height: 30px;line-height: 30px;overflow: hidden;}
         .post-user{width: 20px;}
         .post-user-avatar{width: 100%;height: 20px;line-height: 20px;display: inline-block;border-radius: 50%;margin-right: 6px;vertical-align: middle;}
         .post-info-right{margin-left: 30px;}
-        .post-user-name{display: block;color: #666;font-size: 12px;}
+        .post-user-name{display: block;color: #666;font-size: 12px;margin-bottom: 5px;}
         .post-con{font-size: 12px;color: #999;line-height: 16px;word-wrap: break-word;}
     </style>
 </head>
 <body>
-    <!-- 第一个列表 -->
-    <div class="scroll-list list">
-        <ul>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">小GG炖蘑菇</span>
-                        <p class="post-con">即使很多好的东西已经被别人占有 了，这个世界上依然还有更多的好 东西在等待着我们。</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test01</span>
-                        <p class="post-con">呵呵</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test03</span>
-                        <p class="post-con">开始翻滚吧</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test02</span>
-                        <p class="post-con">2222222222222222222222222222222222222</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">小GG炖蘑菇</span>
-                        <p class="post-con">goodgoodgoodgoodgoodgoodgoodgoodgoodgoodgood</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test04</span>
-                        <p class="post-con">鼠标悬浮上去，会暂停的</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
+    <!-- 纵向滚动 demo -->
+    <div class="w900 clearfix">
+        <!-- 第一个列表 -->
+        <div class="w50 fl">
+            <h2>demo1: </h2>
+            <div class="scroll-list list">
+                <ul>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">小GG炖蘑菇</span>
+                                <p class="post-con">即使很多好的东西已经被别人占有 了，这个世界上依然还有更多的好 东西在等待着我们。</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">test01</span>
+                                <p class="post-con">呵呵</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">test03</span>
+                                <p class="post-con">开始翻滚吧</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">test02</span>
+                                <p class="post-con">2222222222222222222222222222222222222</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">小GG炖蘑菇</span>
+                                <p class="post-con">goodgoodgoodgoodgoodgoodgoodgoodgoodgoodgood</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="clearfix">
+                            <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
+                            <div class="post-info-right">
+                                <span class="post-user-name">test04</span>
+                                <p class="post-con">鼠标悬浮上去，会暂停的</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w50 fl">
+            <!-- 第二个列表 -->
+            <h2>demo2: </h2>
+            <div class="testList list">
+                <ul>
+                    <li><p class="post-con">1. xxxxsadasdsadad</p></li>
+                    <li><p class="post-con">2. 呵呵</p></li>
+                    <li><p class="post-con">3. 开始翻滚吧</p></li>
+                    <li><p class="post-con">4. 2222222222222222222222222222222222222</p></li>
+                    <li><p class="post-con">5. goodgoodgoodgoodgoodgoodgoodgoodgoodgoodgood</p></li>
+                    <li><p class="post-con">6. 鼠标悬浮上去，会暂停的</p></li>
+                    <li><p class="post-con">7. xxxxsadasdsadad</p></li>
+                    <li><p class="post-con">8. 呵呵</p></li>
+                    <li><p class="post-con">9. 开始翻滚吧</p></li>
+                    <li><p class="post-con">10. 2222222222222222222222222222222222222</p></li>
+                    <li><p class="post-con">11. goodgoodgoodgoodgoodgoodgoodgoodgoodgoodgood</p></li>
+                    <li><p class="post-con">12. 鼠标悬浮上去，会暂停的</p></li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <!-- 第二个列表 -->
-    <div class="testList list">
-        <ul>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test0000</span>
-                        <p class="post-con">xxxxsadasdsadad</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test01</span>
-                        <p class="post-con">呵呵</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test03</span>
-                        <p class="post-con">开始翻滚吧</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test02</span>
-                        <p class="post-con">2222222222222222222222222222222222222</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">小GG炖蘑菇</span>
-                        <p class="post-con">goodgoodgoodgoodgoodgoodgoodgoodgoodgoodgood</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="clearfix">
-                    <a class="post-user fl"><img src="images/avatar.png" class="post-user-avatar"/></a>
-                    <div class="post-info-right">
-                        <span class="post-user-name">test04</span>
-                        <p class="post-con">鼠标悬浮上去，会暂停的</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
+    
     <!-- js -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/seamlessRolling.min.js"></script>
     <script>
         $(() => {
-            $.seamlessRolling();
+            $.seamlessRolling({
+                liHeight: 60,
+                hoverStop: false //鼠标悬浮时，是否暂停，默认true：暂停，false: 不暂停
+            });
 
             $.seamlessRolling({
                 el: '.testList', //自定义滚动列表， 默认 .scroll-list
-                speed: 10 //滚动速度，值越小越快，越大越慢
+                speed: 12, //滚动速度，值越小越快，越大越慢
+                direction: 1 //滚动方向，默认0，0：上; 1：下
             });
         });
     </script>
