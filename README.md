@@ -9,7 +9,7 @@
 ### 插件说明：
 
 1. ES6语法，支持jQuery；
-2. 压缩后seamlessRolling.min.js仅1kb,未压缩文件是2kb；
+2. 压缩后seamlessRolling.min.js仅1kb,未压缩文件是3kb；
 3. 支持gulp压缩js；
 
 ### 如何使用？
@@ -35,26 +35,7 @@ HTML结构请按照这种结构来，其他内容随便你定义】
 
 ```css
 <style>
-/* reset */
-html,body,ul,li{margin: 0;padding: 0;}
-html, body{background-color: #f2f2f2;font-size: 16px;}
-ul{list-style: none;}
-a{text-decoration: none;color: #666;}
-
-.clearfix{zoom: 1;}
-.clearfix:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
-
-.fl{float: left;}
-
-/* list css */
-.list{width: 270px;height: 260px;margin: 30px auto auto;overflow: hidden;background-color: #fff;}
-.list ul{padding: 20px;}
-.list li{margin-bottom: 20px;}
-.post-user{width: 20px;}
-.post-user-avatar{width: 100%;height: 20px;line-height: 20px;display: inline-block;border-radius: 50%;margin-right: 6px;vertical-align: middle;}
-.post-info-right{margin-left: 30px;}
-.post-user-name{display: block;color: #666;font-size: 12px;}
-.post-con{font-size: 12px;color: #999;line-height: 16px;word-wrap: break-word;}
+//此处样式自定义，但li的高度务必要设置。
 </style>
 ```
 
@@ -68,13 +49,26 @@ a{text-decoration: none;color: #666;}
 
 ```javascript
 <script>
-   $(() => $.seamlessRolling());
+   $(() => $.seamlessRolling({
+      liHeight: 60,
+      hoverStop: false //鼠标悬浮时，是否暂停，默认true：暂停，false: 不暂停
+   }));
    
    或自定义：
    
+   //更多配置项：
+   //{
+       //el: '.scroll-list', //滚动列表DOM
+       //speed: 40, //滚动速度，值越大越慢
+       //liHeight: 30, //li的高度，默认30px
+       //hoverStop: true, //鼠标悬浮时，是否暂停，默认true：暂停
+       //direction: 0 //滚动方向，0：上; 1：下
+    //}
+    
    $(() => $.seamlessRolling({
-      el: '.scroll-list', //滚动列表DOM
-      speed: 50 //滚动速度，值越大越慢
+      el: '.testList', //自定义滚动列表， 默认 .scroll-list
+      speed: 12, //滚动速度，值越小越快，越大越慢
+      direction: 1 //滚动方向，默认0，0：上; 1：下
    }));
 </script>
 ```
