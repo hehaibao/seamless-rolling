@@ -20,8 +20,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 ```
 
-2. 引用我写好的默认CSS 
-【Tips：
+2. HTML && CSS 【Tips：HTML结构请按照这种结构来，其他内容随便你定义，样式自定义，但li的高度务必要设置。】
 
 ```html
 <div class="list">
@@ -30,13 +29,6 @@
       <li></li>
    </ul>
 </div>
-```
-HTML结构请按照这种结构来，其他内容随便你定义】
-
-```css
-<style>
-//此处样式自定义，但li的高度务必要设置。
-</style>
 ```
 
 3. 引入seamlessRolling.min.js, 目录根据你自己项目来;
