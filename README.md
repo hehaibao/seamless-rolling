@@ -9,7 +9,7 @@
 ### 插件说明：
 
 1. ES6语法，支持jQuery；
-2. 压缩后seamlessRolling.min.js仅1kb,未压缩文件是3kb；
+2. 压缩后seamlessRolling.min.js仅2kb,未压缩文件是4kb；
 3. 支持gulp压缩js；
 
 ### 如何使用？
@@ -52,9 +52,10 @@
    //{
        //el: '.scroll-list', //滚动列表DOM
        //speed: 40, //滚动速度，值越大越慢
-       //liHeight: 30, //li的高度，默认30px
+       //liHeight: 30, //Li的高度，默认30px [纵向滚动时需要]
+       //liWidth: 200, //Li的宽度，默认200px [横向滚动时需要]
        //hoverStop: true, //鼠标悬浮时，是否暂停，默认true：暂停
-       //direction: 0 //滚动方向，0：上; 1：下
+       //direction: 0 //滚动方向，0：上; 1：下; 2：左; 3：右
     //}
     
    $(() => $.seamlessRolling({
