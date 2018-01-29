@@ -17,22 +17,28 @@
 
         .clearfix{zoom: 1;}
         .clearfix:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
-
         .fl{float: left;}
 
         /* list css */
         .w900{width: 900px;margin: 0 auto;}
-        h2{width: 400px;margin: 10px auto;}
+        h2{width: 400px;margin: 20px auto auto;}
+        .w900 > h2{width: 850px;}
         .w50{width: 50%;}
-        .list{width: 400px;height: 260px;margin: 30px auto auto;overflow: hidden;background-color: #fff;}
+        .list{width: 400px;height: 260px;margin: 20px auto auto;overflow: hidden;background-color: #fff;}
         .list ul{padding: 0 20px;}
-        .scroll-list li{height: 60px;overflow: hidden;}
-        .testList li{height: 30px;line-height: 30px;overflow: hidden;}
+
         .post-user{width: 20px;}
         .post-user-avatar{width: 100%;height: 20px;line-height: 20px;display: inline-block;border-radius: 50%;margin-right: 6px;vertical-align: middle;}
         .post-info-right{margin-left: 30px;}
         .post-user-name{display: block;color: #666;font-size: 12px;margin-bottom: 5px;}
         .post-con{font-size: 12px;color: #999;line-height: 16px;word-wrap: break-word;}
+
+        .scroll-list li{height: 60px;overflow: hidden;}
+        .test-list li{height: 30px;line-height: 30px;overflow: hidden;}
+        .img-list, .img-list-r{height: 120px;padding: 10px 0;}
+        .img-list ul, .img-list-r ul{padding: 0;height: 120px;overflow: hidden;background-color: #fff;}
+        .img-list li, .img-list-r li{width: 120px;height: 120px;float: left;margin-right: 10px;}
+        .img-list li a, .img-list-r li a{width: 100%;line-height: 120px;display: block;text-align: center;background-color: #f5f5f5;}
     </style>
 </head>
 <body>
@@ -103,7 +109,7 @@
         <div class="w50 fl">
             <!-- 第二个列表 -->
             <h2>demo2: </h2>
-            <div class="testList list">
+            <div class="test-list list">
                 <ul>
                     <li><p class="post-con">1. xxxxsadasdsadad</p></li>
                     <li><p class="post-con">2. 呵呵</p></li>
@@ -121,21 +127,88 @@
             </div>
         </div>
     </div>
+
+    <div class="w900 clearfix">
+        <!-- 第3个列表 -->
+        <div class="w50 fl">
+            <h2>demo3：</h2>
+            <div class="img-list list">
+                <ul>
+                    <li>
+                        <a href="javascript:;">1</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">2</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">3</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">4</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">5</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 第4个列表 -->
+        <div class="w50 fl">
+            <h2>demo4：</h2>
+            <div class="img-list-r list">
+                <ul>
+                    <li>
+                        <a href="javascript:;">1</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">2</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">3</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">4</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">5</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     
     <!-- js -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/seamlessRolling.min.js"></script>
     <script>
         $(() => {
+            // demo1
             $.seamlessRolling({
-                liHeight: 60,
+                liHeight: 60, //li的高度，只有纵向滚动时才需要
                 hoverStop: false //鼠标悬浮时，是否暂停，默认true：暂停，false: 不暂停
             });
 
+            // demo2
             $.seamlessRolling({
-                el: '.testList', //自定义滚动列表， 默认 .scroll-list
+                el: '.test-list', //自定义滚动列表， 默认 .scroll-list
                 speed: 12, //滚动速度，值越小越快，越大越慢
-                direction: 1 //滚动方向，默认0，0：上; 1：下
+                direction: 1 //滚动方向，默认0，0：上; 1：下；2：左；3：右
+            });
+
+            // demo3
+            $.seamlessRolling({
+                el: '.img-list',
+                speed: 20,
+                liWidth: 130, //li的宽度，只有横向滚动时才需要（有margin间距的话，li的宽度要加上间距，否则滚动不太自然）
+                direction: 2
+            });
+
+            // demo4
+            $.seamlessRolling({
+                el: '.img-list-r',
+                speed: 20,
+                liWidth: 130,
+                direction: 3
             });
         });
     </script>
